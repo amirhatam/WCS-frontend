@@ -1,11 +1,11 @@
 import React from 'react';
-import { MDBContainer } from 'mdb-react-ui-kit';
+import Header from './components/Header';
 
 function App() {
   return (
-    <MDBContainer fluid>
-      Start
-    </MDBContainer>
+    <section >
+      <Header />
+    </section>
   );
 }
 
