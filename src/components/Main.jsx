@@ -18,7 +18,7 @@ export default function Main() {
                 input={input}
             />
 
-            <Read argonaute={argonaute} />
+            <Read argonaute={argonaute} setArgonaute={setArgonaute} />
 
         </MDBContainer>
     )
