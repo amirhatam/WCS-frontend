@@ -8,6 +8,16 @@ export default function Create(props) {
     const getInputValue = (e) => {
         const userValue = e.target.value.toLowerCase()
         props.setInput(userValue)
+
+        btn.addEventListener('click', function handleClick(event) {
+            //  if you are submitting a form (prevents page reload)
+            event.preventDefault();
+
+            const formInput = document.getElementById('form');
+
+            //  clear input field
+            formInput.value = '';
+        });
     }
 
     const addArgonaute = async () => {
