@@ -23,8 +23,8 @@ export default function Create(props) {
 
     const addArgonaute = async () => {
         try {
-            const response = await axios.post('/argonaute/add', { argonaute: props.input })
-            const responseData = await axios.get("/argonaute")
+            const response = await axios.post('http://localhost:8080/argonaute/add', { argonaute: props.input })
+            const responseData = await axios.get("http://localhost:8080/argonaute")
             props.setArgonaute(responseData.data)
 
             if (!response) {
@@ -36,12 +36,10 @@ export default function Create(props) {
         }
     }
 
-
-
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get("/argonaute")
+                const response = await axios.get("http://localhost:8080/argonaute")
 
                 if (response.status === 200) {
                     props.setArgonaute(response.data)

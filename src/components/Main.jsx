@@ -10,16 +10,14 @@ export default function Main() {
 
 
     return (
-        <MDBContainer className='text-center'>
-
+        <div className='text-center'>
             <Create
                 setArgonaute={setArgonaute}
                 setInput={setInput}
                 input={input}
             />
-
             <Read argonaute={argonaute} setArgonaute={setArgonaute} />
 
-        </MDBContainer>
+        </div>
     )
 }
