@@ -7,7 +7,6 @@ export default function Main() {
     const [input, setInput] = useState("")
     const [argonaute, setArgonaute] = useState([]);
 
-
     return (
         <div className='text-center'>
             <Create
