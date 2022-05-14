@@ -1,7 +1,8 @@
 import { MDBBtn, MDBCardTitle, MDBCol, MDBInput, MDBRow } from 'mdb-react-ui-kit'
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import '../assets/styles/Wave.css'
+import AnimationBG from './AnimationBG';
+
 
 
 export default function Create(props) {
@@ -64,9 +65,10 @@ export default function Create(props) {
 
     return (
         <div>
+
             <MDBCardTitle className='my-5 display-6'>Ajouter un(e) Argonaute</MDBCardTitle>
 
-            <MDBRow className="input-group justify-content-center ">
+            <MDBRow className="input-group justify-content-center mx-0" >
                 <MDBCol size='2' className="input-group-prepend px-0">
                     <MDBInput
                         label='Ajouter votre Argonaute'
@@ -79,24 +81,15 @@ export default function Create(props) {
                 </MDBCol>
 
                 <MDBCol size='1' className="input-group-prepend px-0">
-                    <MDBBtn id="btn"
-                        onClick={addArgonaute}
-                    >
+                    <MDBBtn id="btn" onClick={addArgonaute}>
                         Envoyer
                     </MDBBtn>
                 </MDBCol>
 
             </MDBRow>
 
-            <div className='argo-container'>
-                <div className='argo-BG '>
-                </div>
-            </div>
 
-            <div className="ocean">
-                <div className="wave"></div>
-                <div className="wave"></div>
-            </div>
+            <AnimationBG />
 
         </div>
     )
