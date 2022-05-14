@@ -52,7 +52,7 @@ export default function Read(props) {
 
 
     return (
-        <div className='bg-dark'>
+        <div className='bg-dark view'>
             <MDBContainer>
                 <MDBCardTitle className='text-light py-5 display-6'>Membres de l'équipage</MDBCardTitle>
                 <MDBCardGroup>
@@ -63,7 +63,7 @@ export default function Read(props) {
                                     <MDBCard key={i} className="col-lg-3 col-8 px-0 mb-5 mx-3">
                                         <MDBCardImage
                                             src={arrayImg[i]}
-                                            top hover
+                                            // top hover
                                             overlay="white-slight"
                                             alt=""
                                             className="img-fluid"

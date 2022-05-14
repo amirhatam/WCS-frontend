@@ -1,19 +1,23 @@
 import { MDBBtn, MDBCardTitle, MDBCol, MDBInput, MDBRow } from 'mdb-react-ui-kit'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import '../assets/styles/Wave.css'
 
 
 export default function Create(props) {
+    const [valueErr, setValueErr] = useState('')
 
     const getInputValue = (e) => {
         const userValue = e.target.value.toLowerCase()
+
         props.setInput(userValue)
+        setValueErr("");
+
 
         // Clear input field after submit
         btn.addEventListener('click', function handleClick(event) {
             //  if you are submitting a form (prevents page reload)
             event.preventDefault();
-
             const formInput = document.getElementById('form');
 
             //  clear input field
@@ -23,12 +27,18 @@ export default function Create(props) {
 
     const addArgonaute = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/argonaute/add', { argonaute: props.input })
-            const responseData = await axios.get("http://localhost:8080/argonaute")
-            props.setArgonaute(responseData.data)
+            // Condition for validation alphabets only
+            var letters = /^[A-Za-z]+$/
+            if (props.input.match(letters)) {
+                const response = await axios.post('http://localhost:8080/argonaute/add', { argonaute: props.input })
+                const responseData = await axios.get("http://localhost:8080/argonaute")
+                props.setArgonaute(responseData.data)
 
-            if (!response) {
-                console.error("response err:", response);
+                if (!response) {
+                    console.error("response err:", response);
+                }
+            } else {
+                setValueErr("Please enter alphabets only");
             }
 
         } catch (err) {
@@ -56,15 +66,16 @@ export default function Create(props) {
         <div>
             <MDBCardTitle className='my-5 display-6'>Ajouter un(e) Argonaute</MDBCardTitle>
 
-            <MDBRow className="input-group justify-content-center py-5 block-example border-bottom border-gray">
+            <MDBRow className="input-group justify-content-center ">
                 <MDBCol size='2' className="input-group-prepend px-0">
                     <MDBInput
                         label='Ajouter votre Argonaute'
                         onChange={getInputValue}
                         id='form'
                         type='text'
-                        className='mb-md-3 form-control'
+                        className='form-control'
                     />
+                    <p className='text-danger'>{valueErr} </p>
                 </MDBCol>
 
                 <MDBCol size='1' className="input-group-prepend px-0">
@@ -74,7 +85,19 @@ export default function Create(props) {
                         Envoyer
                     </MDBBtn>
                 </MDBCol>
+
             </MDBRow>
+
+            <div className='argo-container'>
+                <div className='argo-BG '>
+                </div>
+            </div>
+
+            <div className="ocean">
+                <div className="wave"></div>
+                <div className="wave"></div>
+            </div>
+
         </div>
     )
 }
