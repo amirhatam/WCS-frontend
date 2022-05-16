@@ -12,7 +12,7 @@ export default function Create(props) {
         const userValue = e.target.value.toLowerCase()
 
         props.setInput(userValue)
-        setValueErr("");
+        setValueErr('');
 
 
         // Clear input field after submit
@@ -31,6 +31,9 @@ export default function Create(props) {
             // Condition for validation alphabets only
             var letters = /^[A-Za-z]+$/
             if (props.input.match(letters)) {
+                // const response = await axios.post('/argonaute/add', { argonaute: props.input })
+                // const responseData = await axios.get("/argonaute")
+
                 const response = await axios.post('http://localhost:8080/argonaute/add', { argonaute: props.input })
                 const responseData = await axios.get("http://localhost:8080/argonaute")
                 props.setArgonaute(responseData.data)
@@ -39,7 +42,7 @@ export default function Create(props) {
                     console.error("response err:", response);
                 }
             } else {
-                setValueErr("Please enter alphabets only");
+                setValueErr("Veuillez entrer uniquement alphabets");
             }
 
         } catch (err) {
@@ -50,6 +53,7 @@ export default function Create(props) {
     useEffect(() => {
         (async () => {
             try {
+                // const response = await axios.get("/argonaute")
                 const response = await axios.get("http://localhost:8080/argonaute")
 
                 if (response.status === 200) {
@@ -62,10 +66,8 @@ export default function Create(props) {
         })();
     }, [])
 
-
     return (
-        <div>
-
+        <div style={{ height: '550px' }}>
             <MDBCardTitle className='my-5 display-6'>Ajouter un(e) Argonaute</MDBCardTitle>
 
             <MDBRow className="input-group justify-content-center mx-0" >
@@ -91,6 +93,6 @@ export default function Create(props) {
 
             <AnimationBG />
 
-        </div>
+        </div >
     )
 }

@@ -15,6 +15,7 @@ export default function AnimationBG() {
             <div className="ocean">
                 <div className="wave"></div>
                 <div className="wave"></div>
+                <div className="wave"></div>
             </div>
         </div>
     )

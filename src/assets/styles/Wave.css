@@ -2,23 +2,23 @@
   height: 6%;
   width:100%;
   position: fixed;
-  bottom: 38px;
+  bottom: 25px;
   left:0;
-  background: #015871;
+  background: #094f8b;
 }
 
 .wave {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
   position: absolute;
-  top: -198px;
+  top: -100px;
   width: 6400px;
-  height: 200px;
+  height: 180px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
 }
 
 .wave:nth-of-type(2) {
-    top: -175px;
+    top: -120px;
     animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
     opacity: 1;
 }
@@ -41,15 +41,11 @@
     }
 }
 
-.argo-container{
-  height: 400px;
-  
-}
 .argo-BG{
   height: 365px;
   width:100%;
   position: fixed;
-  bottom: 80px;
+  bottom: 30px;
   left:0;
   background-image: url("../images/argo.png");
   background-position: center;

@@ -37,10 +37,12 @@ export default function Read(props) {
 
     const deleteArgonaute = async (e) => {
         try {
+            // const response = await axios.delete(`/argonaute/${e.target.value}/delete-argonaute`)
             const response = await axios.delete(`http://localhost:8080/argonaute/${e.target.value}/delete-argonaute`)
             if (!response) {
                 console.error("response err:", response);
             }
+            // const responseData = await axios.get("/argonaute")
             const responseData = await axios.get("http://localhost:8080/argonaute")
             props.setArgonaute(responseData.data)
 
